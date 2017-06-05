@@ -31,5 +31,5 @@ ENV PATH $PATH:/usr/local/go/bin
 # configure GOPATH
 ENV GOPATH /go
 
-# 手元でglide upすれば必要なし
-# CMD mkdir -p $GOPATH/bin && curl https://glide.sh/get | sh
+# use glide
+CMD mkdir -p $GOPATH/bin && curl https://glide.sh/get | sh

@@ -16,7 +16,5 @@ services:
     links:
       - mysql
     volumes:
-      - ./app:/go/app
-      - ./src/vendor:/go/src
-      - ./src/app:/go/src/app
-    command: goapp serve -port 7055 --host=0.0.0.0 /go/app
+      - ./src:/go/src
+    command: goapp serve -port 7055 --host=0.0.0.0 /go/src
