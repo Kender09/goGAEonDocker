@@ -1,20 +1,9 @@
 version: '2'
 services:
-  mysql:
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./sql:/docker-entrypoint-initdb.d
-      - ./sql:/etc/mysql/conf.d
   go_gae:
     image: tom/docker-gae-go
     ports:
       - 7055:7055
-    depends_on:
-      - mysql
-    links:
-      - mysql
     volumes:
       - ./src:/go/src
     command: goapp serve -port 7055 --host=0.0.0.0 /go/src
