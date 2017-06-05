@@ -4,8 +4,6 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
       - ./sql:/etc/mysql/conf.d
@@ -19,7 +17,6 @@ services:
       - mysql
     volumes:
       - ./app:/go/app
+      - ./src/vendor:/go/src
       - ./src/app:/go/src/app
-    volumes_from:
-      - container:go_src
     command: goapp serve -port 7055 --host=0.0.0.0 /go/app
